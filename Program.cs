@@ -21,6 +21,15 @@ char int2c (int i) {
 
 void print_out_status () {
   // secret
+  Console.WriteLine("Secret: ");
+  foreach (char c in secret) {
+    if (guesses[c2int(c)]) {
+      Console.Write(c);
+    } else {
+      Console.Write("*");
+    }
+  }
+  Console.WriteLine("");
   
   // guesses
   Console.Write("Guesses: ");
@@ -32,6 +41,7 @@ void print_out_status () {
   
   // remaining lives
   Console.WriteLine("Lives: "+remaining_lives);
+  Console.WriteLine("");
 }
 
 // main
