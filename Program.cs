@@ -77,7 +77,6 @@ while (!done) {
   if (guess.Length != 1) continue;
   char c = Char.ToLower(guess[0]);
   if (!(c>='a' && c<='z')) continue;
-  
   if (!contains(c)) {
     remaining_lives--;
     if (remaining_lives==0) {
@@ -85,7 +84,6 @@ while (!done) {
       break;
     }
   }
-  
   guesses[c2int(c)] = true;
   
   // check outcome
