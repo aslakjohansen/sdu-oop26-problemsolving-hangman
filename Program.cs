@@ -44,6 +44,16 @@ void print_out_status () {
   Console.WriteLine("");
 }
 
+bool contains (char input) {
+  foreach (char c in secret) {
+    if (input == c) {
+      return true;
+    }
+  }
+  
+  return false;
+}
+
 bool finished () {
   foreach (char c in secret) {
     if (!guesses[c2int(c)]) {
@@ -67,6 +77,15 @@ while (!done) {
   if (guess.Length != 1) continue;
   char c = Char.ToLower(guess[0]);
   if (!(c>='a' && c<='z')) continue;
+  
+  if (!contains(c)) {
+    remaining_lives--;
+    if (remaining_lives==0) {
+      Console.WriteLine("Oops!");
+      break;
+    }
+  }
+  
   guesses[c2int(c)] = true;
   
   // check outcome
