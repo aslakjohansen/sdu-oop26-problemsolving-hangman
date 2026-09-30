@@ -44,6 +44,16 @@ void print_out_status () {
   Console.WriteLine("");
 }
 
+bool finished () {
+  foreach (char c in secret) {
+    if (!guesses[c2int(c)]) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+
 // main
 
 bool done = false;
@@ -60,7 +70,10 @@ while (!done) {
   guesses[c2int(c)] = true;
   
   // check outcome
-//  done = true;
+  if (finished()) {
+    Console.WriteLine("Yay!");
+    done = true;
+  }
   
   // print out status
   print_out_status();
